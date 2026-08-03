@@ -1154,6 +1154,7 @@ void calculate_bandwidth(PCM *m,
                 md.CXLCACHE_Rd_socket_port[skt][p] = toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_RxC_CACHE, uncState1[skt], uncState2[skt]));
                 md.CXLCACHE_Wr_socket_port[skt][p] = toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_CACHE, uncState1[skt], uncState2[skt]));
 
+		// xiaoxiang
                 printf("0 md.CXLMEM_Rd_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Rd_socket_port[skt][p]);
                 printf("0 md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);
             }
@@ -1162,6 +1163,7 @@ void calculate_bandwidth(PCM *m,
                 md.CXLMEM_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_MEM, uncState1[skt], uncState2[skt]));
                 md.CXLCACHE_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_CACHE, uncState1[skt], uncState2[skt]));
 
+		// xiaoxiang
                 printf("1 md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);
             }
             
