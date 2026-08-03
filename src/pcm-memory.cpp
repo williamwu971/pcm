@@ -924,6 +924,7 @@ void calculate_bandwidth(PCM *m,
     md.NM_hit_rate_supported = (cpu_family_model == PCM::ICX);
     md.BHS_NM = m->nearMemoryMetricsAvailable();
     md.BHS = md.BHS_NM;
+    cout<<"md.BHS"<<md.BHS<<"\n";
     static bool mm_once = true;
     if (metrics == Pmem && md.M2M_NM_read_hit_rate_supported == false && md.NM_hit_rate_supported == true && mm_once)
     {
