@@ -1,6 +1,6 @@
 #define xxtrace(fmt, ...)                                           \
     do {                                                            \
-        fprintf(stdout, "xiaoxiang(%s:%d) " fmt "\n", \
+        fprintf(stdout, "xiaoxiang(%s:%5d) " fmt "\n", \
                  __func__, __LINE__, ##__VA_ARGS__);       \
         fflush(stdout);                                    \
     } while (0)
@@ -931,7 +931,7 @@ void calculate_bandwidth(PCM *m,
     md.NM_hit_rate_supported = (cpu_family_model == PCM::ICX);
     md.BHS_NM = m->nearMemoryMetricsAvailable();
     md.BHS = md.BHS_NM;
-    xxtrace("md.BHS %d",md.BHS); // xiaoxiang
+    // xxtrace("md.BHS %d",md.BHS); // xiaoxiang
     static bool mm_once = true;
     if (metrics == Pmem && md.M2M_NM_read_hit_rate_supported == false && md.NM_hit_rate_supported == true && mm_once)
     {
@@ -1362,7 +1362,7 @@ public:
         // xiaoxiang
         uint64 ttc =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
 
-        printf("xiaoxiang totalCount: %llu\n",ttc);
+        xxtrace("totalCount: %llu",ttc);
         return ttc;
     }
 
