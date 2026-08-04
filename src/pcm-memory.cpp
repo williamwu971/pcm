@@ -924,7 +924,7 @@ void calculate_bandwidth(PCM *m,
     md.NM_hit_rate_supported = (cpu_family_model == PCM::ICX);
     md.BHS_NM = m->nearMemoryMetricsAvailable();
     md.BHS = md.BHS_NM;
-    cout<<"md.BHS"<<md.BHS<<"\n";
+    cout<<"md.BHS"<<md.BHS<<"\n"; // xiaoxiang
     static bool mm_once = true;
     if (metrics == Pmem && md.M2M_NM_read_hit_rate_supported == false && md.NM_hit_rate_supported == true && mm_once)
     {
@@ -1155,17 +1155,17 @@ void calculate_bandwidth(PCM *m,
                 md.CXLCACHE_Rd_socket_port[skt][p] = toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_RxC_CACHE, uncState1[skt], uncState2[skt]));
                 md.CXLCACHE_Wr_socket_port[skt][p] = toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_CACHE, uncState1[skt], uncState2[skt]));
 
-		// xiaoxiang
-                printf("0 md.CXLMEM_Rd_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Rd_socket_port[skt][p]);
-                printf("0 md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);
+		
+                printf("md.CXLMEM_Rd_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Rd_socket_port[skt][p]);// xiaoxiang
+                printf("md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);// xiaoxiang
             }
             else
             {
                 md.CXLMEM_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_MEM, uncState1[skt], uncState2[skt]));
                 md.CXLCACHE_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_CACHE, uncState1[skt], uncState2[skt]));
 
-		// xiaoxiang
-                printf("1 md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);
+		
+                printf("md.CXLMEM_Wr_socket_port[%u][%lu] %.2f\n",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);// xiaoxiang
             }
             
         }
@@ -1350,7 +1350,11 @@ public:
 
     uint64 getTotalCount(const std::vector<ServerUncoreCounterState>& AfterState)
     {
-        return eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
+        // xiaoxiang
+        uint64 totalCount =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
+
+        printf("xiaoxiang totalCount: %lu\n",totalCount);
+        return totalCount;
     }
 
     void reset()
