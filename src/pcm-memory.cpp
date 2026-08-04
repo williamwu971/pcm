@@ -1353,10 +1353,10 @@ public:
     uint64 getTotalCount(const std::vector<ServerUncoreCounterState>& AfterState)
     {
         // xiaoxiang
-        uint64 totalCount =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
+        uint64 ttc =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
 
-        printf("xiaoxiang totalCount: %llu\n",totalCount);
-        return totalCount;
+        printf("xiaoxiang totalCount: %llu\n",ttc);
+        return ttc;
     }
 
     void reset()
