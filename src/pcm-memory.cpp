@@ -1,9 +1,4 @@
-#define xxtrace(fmt, ...)                                           \
-    do {                                                            \
-        fprintf(stdout, "xiaoxiang(%s:%5d) " fmt "\n", \
-                 __func__, __LINE__, ##__VA_ARGS__);       \
-        fflush(stdout);                                    \
-    } while (0)
+#include "xiaoxiang.h
 
 // SPDX-License-Identifier: BSD-3-Clause
 // Copyright (c) 2009-2022, Intel Corporation
