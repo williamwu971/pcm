@@ -1180,6 +1180,7 @@ void calculate_bandwidth(PCM *m,
 
     const auto CXL_Read_BW = toBW(SPR_CHA_CXL_Count);
 
+    xxtrace();
     return; // xiaoxiang
 
     if (csv)
