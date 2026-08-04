@@ -1362,7 +1362,7 @@ public:
         // xiaoxiang
         uint64 ttc =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
 
-        xxtrace("totalCount: %llu",ttc);
+        xxtrace("read totalCount: %llu",ttc);
         return ttc;
     }
 
