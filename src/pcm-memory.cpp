@@ -1,7 +1,7 @@
 #define xxtrace(fmt, ...)                                           \
     do {                                                            \
-        fprintf(stdout, "xiaoxiang: (%s:%d:%s) " fmt "\n", \
-                __FILE__, __LINE__, __func__, ##__VA_ARGS__);       \
+        fprintf(stdout, "xiaoxiang(%s:%d) " fmt "\n", \
+                 __func__, __LINE__, ##__VA_ARGS__);       \
         fflush(stdout);                                    \
     } while (0)
 
