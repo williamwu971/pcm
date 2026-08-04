@@ -1355,7 +1355,7 @@ public:
         // xiaoxiang
         uint64 totalCount =  eventGroups.size() * (totalCount + extractCHATotalCount(MidStates.back(), AfterState));
 
-        printf("xiaoxiang totalCount: %lu\n",totalCount);
+        printf("xiaoxiang totalCount: %llu\n",totalCount);
         return totalCount;
     }
 
