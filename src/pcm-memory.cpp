@@ -1164,6 +1164,8 @@ void calculate_bandwidth(PCM *m,
                 md.CXLMEM_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_MEM, uncState1[skt], uncState2[skt]));
                 md.CXLCACHE_Wr_socket_port[skt][p] = CXLBWWrScalingFactor * toBW(getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_CACHE, uncState1[skt], uncState2[skt]));
                 
+
+                md.CXLMEM_Wr_socket_port[skt][p] = getCXLCMCounter((uint32)p, PCM::EventPosition::CXL_TxC_MEM, uncState1[skt], uncState2[skt]); // wxx
             }
 
             xxtrace("md.CXLMEM_Wr_socket_port[%u][%lu] %.2f",skt,p,md.CXLMEM_Wr_socket_port[skt][p]);
