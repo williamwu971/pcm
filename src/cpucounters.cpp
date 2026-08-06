@@ -7614,7 +7614,7 @@ ServerUncoreCounterState PCM::getServerUncoreCounterState(uint32 socket)
             for (int i = 0; i < ServerUncoreCounterState::maxCounters && socket < cxlPMUs.size() && size_t(i) < cxlPMUs[socket][p].first.size(); ++i)
             {
                 result.CXLCMCounter[p][i] = *cxlPMUs[socket][p].first.counterValue[i];
-                xxtrace("socket result.CXLCMCounter[%lu][%d] %llu",p,i,result.CXLCMCounter[p][i]);
+                if (socket==1)xxtrace("result.CXLCMCounter[%lu][%d] %llu",p,i,result.CXLCMCounter[p][i]);
             }
             for (int i = 0; i < ServerUncoreCounterState::maxCounters && socket < cxlPMUs.size() && size_t(i) < cxlPMUs[socket][p].second.size(); ++i)
             {
