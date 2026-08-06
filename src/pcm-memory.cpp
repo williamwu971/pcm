@@ -1231,8 +1231,11 @@ void readState(std::vector<ServerUncoreCounterState>& state)
 {
     auto* pcm = PCM::getInstance();
     assert(pcm);
-    for (uint32 i = 0; i < pcm->getNumSockets(); ++i)
+    for (uint32 i = 0; i < pcm->getNumSockets(); ++i){
         state[i] = pcm->getServerUncoreCounterState(i);
+        printf("getServerUncoreCounterState(%u)\n",i);
+    }
+        
 };
 
 class CHAEventCollector
