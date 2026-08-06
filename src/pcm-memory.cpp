@@ -1233,7 +1233,7 @@ void readState(std::vector<ServerUncoreCounterState>& state)
     assert(pcm);
     for (uint32 i = 0; i < pcm->getNumSockets(); ++i){
         state[i] = pcm->getServerUncoreCounterState(i);
-        printf("getServerUncoreCounterState(%u)\n",i);
+        // printf("getServerUncoreCounterState(%u)\n",i);
     }
         
 };
