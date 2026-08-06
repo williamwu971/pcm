@@ -7528,7 +7528,7 @@ bool PCM::isSomeCoreOfflined()
 
 ServerUncoreCounterState PCM::getServerUncoreCounterState(uint32 socket)
 {
-    xxtrace("socket %u %d",socket,socket==1);
+    const int xx=(socket==1);
 
     ServerUncoreCounterState result;
     if (socket < serverBW.size() && serverBW[socket].get())
@@ -7617,7 +7617,7 @@ ServerUncoreCounterState PCM::getServerUncoreCounterState(uint32 socket)
             {
                 result.CXLCMCounter[p][i] = *cxlPMUs[socket][p].first.counterValue[i];
 
-                if (socket==1)xxtrace("result.CXLCMCounter[%lu][%d] %llu",p,i,result.CXLCMCounter[p][i]);
+                if (xx)xxtrace("result.CXLCMCounter[%lu][%d] %llu",p,i,result.CXLCMCounter[p][i]);
             }
             for (int i = 0; i < ServerUncoreCounterState::maxCounters && socket < cxlPMUs.size() && size_t(i) < cxlPMUs[socket][p].second.size(); ++i)
             {
