@@ -7528,7 +7528,7 @@ bool PCM::isSomeCoreOfflined()
 
 ServerUncoreCounterState PCM::getServerUncoreCounterState(uint32 socket)
 {
-    xxtrace("socket %u",socket);
+    xxtrace("socket %u %d",socket,socket==1);
 
     ServerUncoreCounterState result;
     if (socket < serverBW.size() && serverBW[socket].get())
